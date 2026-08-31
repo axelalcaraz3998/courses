@@ -1,0 +1,38 @@
+# =========================
+# Java compiled/build files
+# =========================
+
+# Compiled Java classes
+*.class
+
+# Common Java build directories
+target/
+build/
+out/
+
+# =========================
+# IntelliJ IDEA
+# =========================
+
+# IntelliJ project settings
+.idea/
+
+# IntelliJ module files
+*.iml
+
+# IntelliJ workspace/user-specific files
+*.iws
+
+# IntelliJ generated files
+*.ipr
+
+# =========================
+# OS-generated files
+# =========================
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
