@@ -1,2 +1,0 @@
-Level 4:
-Use `file` command to see the type of data found in the files.
