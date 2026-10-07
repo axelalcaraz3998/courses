@@ -6,35 +6,34 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "instructor_detail")
-public class InstructorDetail {
+@Table(name = "course")
+public class Course {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
   private Integer id;
-  @Column(name = "youtube_channel")
-  private String youtubeChannel;
-  @Column(name = "hobby")
-  private String hobby;
-  @OneToOne(mappedBy = "instructorDetail", cascade = {
+  @Column(name = "title")
+  private String title;
+  @ManyToOne(cascade = {
       CascadeType.DETACH,
       CascadeType.MERGE,
       CascadeType.PERSIST,
-      CascadeType.REFRESH,
+      CascadeType.REFRESH
   })
+  @JoinColumn(name = "instructor_id")
   private Instructor instructor;
 
-  public InstructorDetail() {
+  public Course() {
   }
 
-  public InstructorDetail(String youtubeChannel, String hobby) {
-    this.youtubeChannel = youtubeChannel;
-    this.hobby = hobby;
+  public Course(String title) {
+    this.title = title;
   }
 
   public Integer getId() {
@@ -45,20 +44,12 @@ public class InstructorDetail {
     this.id = id;
   }
 
-  public String getYoutubeChannel() {
-    return youtubeChannel;
+  public String getTitle() {
+    return title;
   }
 
-  public void setYoutubeChannel(String youtubeChannel) {
-    this.youtubeChannel = youtubeChannel;
-  }
-
-  public String getHobby() {
-    return hobby;
-  }
-
-  public void setHobby(String hobby) {
-    this.hobby = hobby;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
   public Instructor getInstructor() {
@@ -71,10 +62,9 @@ public class InstructorDetail {
 
   @Override
   public String toString() {
-    return "InstructorDetail{" +
+    return "Course{" +
         "id=" + id +
-        ", youtubeChannel='" + youtubeChannel + '\'' +
-        ", hobby='" + hobby + '\'' +
+        ", title='" + title + '\'' +
         '}';
   }
 
