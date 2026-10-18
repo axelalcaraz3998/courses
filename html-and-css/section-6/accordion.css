@@ -1,0 +1,87 @@
+:root {
+  --var-main-color: #087f5b;
+  --var-gray-color: #343a40;
+  --var-gray-light-color: #868e96;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--var-gray-color);
+  line-height: 1;
+}
+
+.accordion {
+  width: 700px;
+  margin: 100px auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.item {
+  box-shadow: 0 0 32px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 24px;
+  row-gap: 32px;
+}
+
+.number,
+.text {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--var-gray-light-color);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  color: var(--var-gray-light-color);
+}
+
+.hidden-box {
+  grid-column: 2;
+  display: none;
+}
+
+.hidden-box p {
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.hidden-box ul {
+  color: var(--var-gray-light-color);
+  margin-left: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item && .active .hidden-box {
+  display: block;
+}
+
+.active {
+  border-top: 4px solid var(--var-main-color);
+}
+
+.active .hidden-box {
+  display: block;
+}
+
+.active .number,
+.active .text,
+.active .icon {
+  color: var(--var-main-color);
+}
